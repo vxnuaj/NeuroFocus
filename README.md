@@ -16,7 +16,7 @@ You can use a synthetic board...!!!
 
 # What you'll learn
 
-If you don't copy and paste this project, and actually attempt to understand how it works, just like I did, you'll learn:
+If you don't copy and paste this project, and you actually attempt to understand how it works, just like I did, you'll learn:
 
 1. Basic understanding of Python
 2. Basic setup and usage of Pandas, Numpy, Matplotlib, and BrainFlow's API
