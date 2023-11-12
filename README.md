@@ -43,7 +43,7 @@ Read this - [LINK](https://www.linkedin.com/posts/vxnuaj_as-i-explore-bcis-signa
 3. I asked questions - [BrainFlow Slack Channel](https://brainflow.org/2020-03-23-slack/)
 4. I kept learning 
 
-# Questions
+# Contact
 
 Feel free to reach out! Always down to talk!
 
