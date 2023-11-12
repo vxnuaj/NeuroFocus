@@ -42,3 +42,13 @@ Read this - [LINK](https://www.linkedin.com/posts/vxnuaj_as-i-explore-bcis-signa
 2. If I didn't understand any part the code or the documentation, I asked ChatGPT to explain it to me.
 3. I asked questions - [BrainFlow Slack Channel](https://brainflow.org/2020-03-23-slack/)
 4. I kept learning 
+
+# Questions
+
+Feel free to reach out! Always down to talk!
+
+[LinkedIn](https://linkedin.com/in/vxnuaj)
+
+[Twitter](https://twitter.com/vxnuaj)
+
+[Instagram](https://instagram.com/vxnuaj)
