@@ -39,6 +39,6 @@ Read this - [LINK](https://www.linkedin.com/posts/vxnuaj_as-i-explore-bcis-signa
 # Here's how I understood how it worked.
 
 1. I read these docs as I replicated the code ~ [BrainFlow](https://brainflow.readthedocs.io/en/stable/UserAPI.html), [Pandas](https://pandas.pydata.org/docs/), [Matplotlib](https://matplotlib.org/stable/index.html), [NumPy](https://numpy.org/doc/1.26/user/index.html#user)
-2. If I didn't any part the code or the documentation, I asked ChatGPT to explain it to me.
+2. If I didn't understand any part the code or the documentation, I asked ChatGPT to explain it to me.
 3. I asked questions - [BrainFlow Slack Channel](https://brainflow.org/2020-03-23-slack/)
 4. I kept learning 
