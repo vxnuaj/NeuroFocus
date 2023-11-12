@@ -25,8 +25,11 @@ If you don't copy and paste this project, and you actually attempt to understand
 3. Basic setup and usage of EEG Hardware (only if you use real hardware)
 
 Before you dive in, let me tell you something.
+
 From the outside this might seem difficult. But it's just a simple challenge.
+
 I didn't know jackshit at first either. I didn't know what Pandas, NumPy, BrainFlow, or Matplotlib was.
+
 But I spent ~5 days trying to understand and learn. And I got it.
 
 So you can do it to.
