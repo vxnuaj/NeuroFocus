@@ -17,7 +17,7 @@ You can use a synthetic board...!!!
 # What you'll learn
 
 If you don't copy and paste this project, and actually attempt to understand how it works, just like I did, you'll learn:
-    
-    1. Basic understanding of Python
-    2. Basic setup and usage of Pandas, Numpy, Matploflib, and BrainFlow's API
-    3. Basic setup and usage of EEG Hardware (only if you use real hardware)
+
+1. Basic understanding of Python
+2. Basic setup and usage of Pandas, Numpy, Matplotlib, and BrainFlow's API
+3. Basic setup and usage of EEG Hardware (only if you use real hardware)
