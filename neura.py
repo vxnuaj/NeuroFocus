@@ -21,7 +21,7 @@ def main(i):
     BoardShim.enable_dev_board_logger()
 
     params = BrainFlowInputParams()
-    board_id = BoardIds.SYNTHETIC_BOARD.value ##Use that or BoardIds(-1) | The Brainflow Docs indicate the Synthetic_Board value is -1
+    board_id = BoardIds.SYNTHETIC_BOARD.value ##If you're using hardware, swap with the board you're using. Reference the ![BrainFlow Docs](https://brainflow.readthedocs.io/en/stable/UserAPI.html)
     board = BoardShim(board_id, params)
     eeg_channels = BoardShim.get_eeg_channels(board_id)
     sampling_rate = BoardShim.get_sampling_rate(board_id)
@@ -84,30 +84,31 @@ def main(i):
                                             FilterTypes.BESSEL.value, 0) 
 
 
-##BrainFlow Machine Learning Model and the Concentration / Relaxation Calculation
+##BrainFlow Machine Learning Model and the Focus / Restfulness Calculation
+# In terms of the BrainFlow Library, Focus = Mindfulness
 
         bands = DataFilter.get_avg_band_powers(
             data, eeg_channels, sampling_rate, True)
         feature_vector = np.concatenate((bands[0], bands[1]))
 
 
-        concentration_params = BrainFlowModelParams(
-            BrainFlowMetrics.CONCENTRATION.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
-        concentration = MLModel(concentration_params)
-        concentration.prepare()
-        print('Concentration: %f' % concentration.predict(feature_vector))
-        concentrated_measure = concentration.predict(feature_vector)
-        concentration.release()
+        mindfulness_params = BrainFlowModelParams(
+            BrainFlowMetrics.MINDFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
+        mindfulness = MLModel(mindfulness_params)
+        mindfulness.prepare()
+        print('Focus: %f' % mindfulness.predict(feature_vector))
+        mindfulness = mindfulness.predict(feature_vector)
+        mindfulness.release()
 
 
-        relaxation_params = BrainFlowModelParams(
-            BrainFlowMetrics.RELAXATION.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
-        relaxation = MLModel(relaxation_params)
-        relaxation.prepare()
-        print('Relaxation: %f' % relaxation.predict(feature_vector))
-        relaxed_measure = relaxation.predict(feature_vector)
-        relaxation.release()
-      
+        restfulness_params = BrainFlowModelParams(
+            BrainFlowMetrics.RESTFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
+        restfulness = MLModel(restfulness_params)
+        restfulness.prepare()
+        print('Relaxation: %f' % restfulness.predict(feature_vector))
+        restfulness_measure = restfulness.predict(feature_vector)
+        restfulness.release()
+
 
         eeg1.extend(eegdf.iloc[:, 0].values) 
         eeg2.extend(eegdf.iloc[:, 1].values) 
@@ -124,17 +125,17 @@ def main(i):
         plt.tight_layout()
         keep_alive = False 
 
-##Concentration and Relaxation Feedback
+##Focus and Relaxation Feedback
       
-        if concentrated_measure >= 0.5:
-            print("GOOD KEEP CONCENTRATING")
+        if mindfulness >= 0.5:
+            print("SUPERCHARGED")
         else:
-            print("WHERE IS THE CONCENTRATION??")
+            print("bro...focus")
         
-        if relaxed_measure >= 0.5:
-            print("YES RELAX MORE")
+        if restfulness_measure >= 0.5:
+            print("Relaxed")
         else:
-            print("NO, START RELAXING") 
+            print("Let's relax...") 
 
     board.stop_stream()
     board.release_session()
