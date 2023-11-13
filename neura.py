@@ -85,7 +85,7 @@ def main(i):
 
 
 ##BrainFlow Machine Learning Model and the Focus / Restfulness Calculation
-# In terms of the BrainFlow Library, Focus = Mindfulness
+## In terms of the BrainFlow Library, Focus = Mindfulness
 
         bands = DataFilter.get_avg_band_powers(
             data, eeg_channels, sampling_rate, True)
