@@ -128,14 +128,14 @@ def main(i):
 ##Focus and Relaxation Feedback
       
         if mindfulness_measure >= 0.5:
-            print("SUPERCHARGED")
+            print("Supercharged!")
         else:
-            print("bro...focus")
+            print("Focus on what matters most.")
         
-        if restfulness_measure >= 0.5:
-            print("Relaxed")
-        else:
-            print("Let's relax...") 
+        ##if restfulness_measure >= 0.5:
+            ##print("Relaxed")
+        ##else:
+           ## print("Let's relax...") 
 
     board.stop_stream()
     board.release_session()
