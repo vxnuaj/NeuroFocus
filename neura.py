@@ -21,7 +21,8 @@ def main(i):
     BoardShim.enable_dev_board_logger()
 
     params = BrainFlowInputParams()
-    board_id = BoardIds.SYNTHETIC_BOARD.value ##If you're using hardware, swap with the board you're using. Reference the ![BrainFlow Docs](https://brainflow.readthedocs.io/en/stable/UserAPI.html)
+    board_id = BoardIds.SYNTHETIC_BOARD.value ##If you're using hardware, swap with the board you're using. Reference the BrainFlow Docs
+    params.serial_port = 'COM5'
     board = BoardShim(board_id, params)
     eeg_channels = BoardShim.get_eeg_channels(board_id)
     sampling_rate = BoardShim.get_sampling_rate(board_id)
@@ -52,8 +53,7 @@ def main(i):
         
         eegdf = pd.DataFrame(np.transpose(data[eeg_channels]))
         eegdf_col_names = ["ch1", "ch2", "ch3", "ch4"]
-        eegdf.columns = eegdf_col_names
-
+        eegdf.columns = [f"ch{i}" for i in range(1, len(eegdf.columns) + 1)] ##Placeholder for SYNTHETIC_BOARD; When you use real hardware, input eegdf.columns = eegdf_column_names
        
         timedf = pd.DataFrame(np.transpose(data[timestamp]))
 
@@ -97,7 +97,7 @@ def main(i):
         mindfulness = MLModel(mindfulness_params)
         mindfulness.prepare()
         print('Focus: %f' % mindfulness.predict(feature_vector))
-        mindfulness = mindfulness.predict(feature_vector)
+        mindfulness_measure = mindfulness.predict(feature_vector)
         mindfulness.release()
 
 
@@ -127,7 +127,7 @@ def main(i):
 
 ##Focus and Relaxation Feedback
       
-        if mindfulness >= 0.5:
+        if mindfulness_measure >= 0.5:
             print("SUPERCHARGED")
         else:
             print("bro...focus")
