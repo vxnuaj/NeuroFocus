@@ -49,7 +49,7 @@ def main(i):
 
     while keep_alive == True:
 
-        while board.get_board_data_count() < 250: 
+        while board.get_board_data_count() < 250: ##shouldn't it be 200 for the ganglion board?
             time.sleep(0.005)
         data = board.get_current_board_data(250)
 
@@ -145,7 +145,7 @@ def main(i):
 
 ##Matplotlib Animation
 
-ani = FuncAnimation(plt.gcf(), main, interval=1000) 
+ani = FuncAnimation(plt.gcf(), main, interval=1000)
 plt.tight_layout()
 plt.autoscale(enable=True, axis="y", tight=True)
 plt.show()
