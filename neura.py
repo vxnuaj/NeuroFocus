@@ -90,13 +90,11 @@ def main(i):
 ##BrainFlow Machine Learning Model and the Focus / Restfulness Calculation
 ## In terms of the BrainFlow Library, Focus = Mindfulness
 
-        bands = DataFilter.get_avg_band_powers(
-            data, eeg_channels, sampling_rate, True)
+        bands = DataFilter.get_avg_band_powers(data, eeg_channels, sampling_rate, True)
         feature_vector = np.concatenate((bands[0], bands[1]))
 
 
-        mindfulness_params = BrainFlowModelParams(
-            BrainFlowMetrics.MINDFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
+        mindfulness_params = BrainFlowModelParams(BrainFlowMetrics.MINDFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
         mindfulness = MLModel(mindfulness_params)
         mindfulness.prepare()
         print('Focus: %f' % mindfulness.predict(feature_vector))
@@ -104,8 +102,7 @@ def main(i):
         mindfulness.release()
 
 
-        restfulness_params = BrainFlowModelParams(
-            BrainFlowMetrics.RESTFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
+        restfulness_params = BrainFlowModelParams(BrainFlowMetrics.RESTFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
         restfulness = MLModel(restfulness_params)
         restfulness.prepare()
         print('Relaxation: %f' % restfulness.predict(feature_vector))
