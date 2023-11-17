@@ -2,15 +2,18 @@
 
 ##Header
 
-import pandas as pd
-from matplotlib import style
-from matplotlib.animation import FuncAnimation
-import matplotlib.pyplot as plt
-import matplotlib
 import time
 import sys
-import brainflow
+
+import pandas as pd
 import numpy as np
+
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib import style
+from matplotlib.animation import FuncAnimation
+
+import brainflow
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, LogLevels, BoardIds
 from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
 from brainflow.ml_model import MLModel, BrainFlowMetrics, BrainFlowClassifiers, BrainFlowModelParams
