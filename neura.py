@@ -24,8 +24,8 @@ def main(i):
     BoardShim.enable_dev_board_logger()
 
     params = BrainFlowInputParams()
-    board_id = BoardIds.SYNTHETIC_BOARD.value ##If you're using hardware, swap with the board you're using. Reference the BrainFlow Docs
-    params.serial_port = 'COM5'
+    board_id = BoardIds.GANGLION_BOARD.value ##If you're using hardware, swap with the board you're using. Reference the BrainFlow Docs
+    params.serial_port = "/dev/cu.usbmodem11" ##Make sure you input the correct serial port from your computer
     board = BoardShim(board_id, params)
     eeg_channels = BoardShim.get_eeg_channels(board_id)
     sampling_rate = BoardShim.get_sampling_rate(board_id)
@@ -49,14 +49,14 @@ def main(i):
 
     while keep_alive == True:
 
-        while board.get_board_data_count() < 250: ##shouldn't it be 200 for the ganglion board?
+        while board.get_board_data_count() < 250:
             time.sleep(0.005)
         data = board.get_current_board_data(250)
 
         
         eegdf = pd.DataFrame(np.transpose(data[eeg_channels]))
         eegdf_col_names = ["ch1", "ch2", "ch3", "ch4"]
-        eegdf.columns = [f"ch{i}" for i in range(1, len(eegdf.columns) + 1)] ##Placeholder for SYNTHETIC_BOARD; When you use real hardware, input eegdf.columns = eegdf_column_names
+        eegdf.columns = eegdf_col_names
        
         timedf = pd.DataFrame(np.transpose(data[timestamp]))
 
@@ -102,12 +102,12 @@ def main(i):
         mindfulness.release()
 
 
-        restfulness_params = BrainFlowModelParams(BrainFlowMetrics.RESTFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
-        restfulness = MLModel(restfulness_params)
-        restfulness.prepare()
-        print('Relaxation: %f' % restfulness.predict(feature_vector))
-        restfulness_measure = restfulness.predict(feature_vector)
-        restfulness.release()
+        ##restfulness_params = BrainFlowModelParams(BrainFlowMetrics.RESTFULNESS.value, BrainFlowClassifiers.DEFAULT_CLASSIFIER.value)
+        ##restfulness = MLModel(restfulness_params)
+        ##restfulness.prepare()
+        ##print('Relaxation: %f' % restfulness.predict(feature_vector))
+        ##restfulness_measure = restfulness.predict(feature_vector)
+        ##restfulness.release()
 
 
         eeg1.extend(eegdf.iloc[:, 0].values) 
@@ -125,7 +125,7 @@ def main(i):
         plt.tight_layout()
         keep_alive = False 
 
-##Focus and Relaxation Feedback
+##Focus / Relaxation Neurofeedback
       
         if mindfulness_measure >= 0.5:
             print("Supercharged!")
@@ -135,14 +135,14 @@ def main(i):
         ##if restfulness_measure >= 0.5:
             ##print("Relaxed")
         ##else:
-           ## print("Let's relax...") 
+          ##print("Let's relax...") 
 
     board.stop_stream()
     board.release_session()
 
 ##Matplotlib Animation
 
-ani = FuncAnimation(plt.gcf(), main, interval=1000)
+ani = FuncAnimation(plt.gcf(), main, interval=500)
 plt.tight_layout()
 plt.autoscale(enable=True, axis="y", tight=True)
 plt.show()
