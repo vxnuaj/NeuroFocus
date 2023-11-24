@@ -20,7 +20,7 @@ or
 
 You can use a synthetic board...!!!
 
-# What you'll learn
+# What you'll learn!
 
 If you don't copy and paste this project, and you actually attempt to understand how it works, just like I did, you'll learn:
 
