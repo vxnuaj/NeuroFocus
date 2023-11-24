@@ -49,7 +49,7 @@ Read this - [LINK](https://www.linkedin.com/posts/vxnuaj_as-i-explore-bcis-signa
 
 # Contact
 
-Feel free to reach out! Always down to talk!
+Feel free to reach out! Always down to chat!
 
 [LinkedIn](https://linkedin.com/in/vxnuaj)
 
