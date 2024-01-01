@@ -1,8 +1,8 @@
 # NeuroFocus
 
-A semi-replicated project from [Ahnaaf Khan](https://ahnaafk.medium.com/creating-a-neurofeedback-program-with-python-c6153022a4e7) / [Surya Sure's](https://medium.com/@suryasure734/building-a-neurofeedback-program-to-assess-concentration-and-relaxation-25f38afc0fdd) Neurofeedback system.
+I built a Neurofeedback System, using OpenBCIs Ganglion, to track your brain waves via EEG in order to ouput your level of FOCUS.
 
-A Neurofeedback System, using OpenBCIs Ganglion, to track your brain waves via EEG in order to ouput your level of FOCUS.
+This is a semi-replicated project from [Ahnaaf Khan](https://ahnaafk.medium.com/creating-a-neurofeedback-program-with-python-c6153022a4e7) / [Surya Sure's](https://medium.com/@suryasure734/building-a-neurofeedback-program-to-assess-concentration-and-relaxation-25f38afc0fdd) Neurofeedback system.
 
 Video Demo: https://www.youtube.com/watch?v=iw1inophIt0&t=143s
 
